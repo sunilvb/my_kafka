@@ -1,0 +1,49 @@
+<html>
+<head>
+<style>
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #FF5733;
+    color: white;
+}
+</style>
+</head>
+<body>
+<h1>List of Customers with Product changes</h1>
+<table id="customers">
+<tr>
+	<th>Id</th>
+	<th>SubscriberId</th>
+	<th>Rate</th>
+	<th>Adjustment</th>
+	<th>Premium</th>
+	<th>Billed Amount</th>
+</tr>
+<tr th:each="premium : ${premiums}">
+	<td th:text="${premium.id}"></td>
+	<td th:text="${premium.subscriberId}"></td>
+	<td th:text="${premium.rate}"></td>
+	<td th:text="${premium.adjustment}"></td>
+	<td th:text="${premium.premium}"></td>
+	<td th:text="${premium.billedAmount}"></td>
+</tr>
+</table>
+</body>
+</html>
