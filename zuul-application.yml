@@ -1,0 +1,30 @@
+#=========================================================
+# ZUUL Server
+#=========================================================
+
+
+server:
+  port: 8073
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+zuul:
+  prefix: /billing
+  routes:
+    reporting-service:
+      path: /reporting/**
+      serviceId: reporting-service
+    event-service:
+      path: /events/**
+      serviceId: event-service
+    product-service:
+      path: /product/**
+      serviceId: product-service
+
+
+spring:
+  application:
+    name: zuul-server
